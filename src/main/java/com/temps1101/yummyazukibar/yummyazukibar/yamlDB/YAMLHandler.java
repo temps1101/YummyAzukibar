@@ -1,4 +1,4 @@
-package com.temps1101.yummyazuikibar.yummyazuikibar.yamlDB;
+package com.temps1101.yummyazukibar.yummyazukibar.yamlDB;
 
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -30,7 +30,7 @@ public class YAMLHandler {
         return new LoginData(firstJoin, lastJoin, count);
     }
     public static void saveLoginData(Player p, LoginData loginData) {
-        File loginDataFile = new File(pluginDirectory, p.getUniqueId().toString() + ".yml");
+        File loginDataFile =     new File(pluginDirectory, p.getUniqueId().toString() + ".yml");
         YamlConfiguration conf = YamlConfiguration.loadConfiguration(loginDataFile);
         conf.set("first_join", loginData.getFirstjoin());
         conf.set("last_join", loginData.getLastJoin());

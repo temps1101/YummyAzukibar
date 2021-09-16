@@ -1,4 +1,4 @@
-package com.temps1101.yummyazuikibar.yummyazuikibar.tools;
+package com.temps1101.yummyazukibar.yummyazukibar.tools;
 
 import org.bukkit.ChatColor;
 

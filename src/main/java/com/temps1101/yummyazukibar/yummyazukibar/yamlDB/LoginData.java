@@ -1,4 +1,4 @@
-package com.temps1101.yummyazuikibar.yummyazuikibar.yamlDB;
+package com.temps1101.yummyazukibar.yummyazukibar.yamlDB;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;

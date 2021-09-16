@@ -1,6 +1,6 @@
-package com.temps1101.yummyazuikibar.yummyazuikibar.listeners;
+package com.temps1101.yummyazukibar.yummyazukibar.listeners;
 
-import com.temps1101.yummyazuikibar.yummyazuikibar.yamlDB.LoginData;
+import com.temps1101.yummyazukibar.yummyazukibar.yamlDB.LoginData;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

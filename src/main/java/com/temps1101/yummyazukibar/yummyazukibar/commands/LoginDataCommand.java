@@ -1,8 +1,8 @@
-package com.temps1101.yummyazuikibar.yummyazuikibar.commands;
+package com.temps1101.yummyazukibar.yummyazukibar.commands;
 
-import com.temps1101.yummyazuikibar.yummyazuikibar.yamlDB.LoginData;
-import com.temps1101.yummyazuikibar.yummyazuikibar.tools.ChatTools;
-import com.temps1101.yummyazuikibar.yummyazuikibar.yamlDB.YAMLHandler;
+import com.temps1101.yummyazukibar.yummyazukibar.yamlDB.LoginData;
+import com.temps1101.yummyazukibar.yummyazukibar.tools.ChatTools;
+import com.temps1101.yummyazukibar.yummyazukibar.yamlDB.YAMLHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

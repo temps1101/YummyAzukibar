@@ -1,13 +1,13 @@
-name: YummyAzuikibar
+name: YummyAzukibar
 version: '${project.version}'
-main: com.temps1101.yummyazuikibar.yummyazuikibar.YummyAzuikibar
+main: com.temps1101.yummyazukibar.yummyazukibar.YummyAzukibar
 authors: [ temps1101 ]
 description: Plugin to record player's login information
 commands:
   logindata:
     aliases: ["ld"]
-    permission: yummyazuikibar.logindata
+    permission: yummyazukibar.logindata
 permissions:
-  yummyazuikibar:
+  yummyazukibar:
     description: Permission to run logindata or not.
     default: op
