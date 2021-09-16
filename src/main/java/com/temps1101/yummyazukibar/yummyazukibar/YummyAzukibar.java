@@ -1,5 +1,6 @@
 package com.temps1101.yummyazukibar.yummyazukibar;
 
+import com.temps1101.yummyazukibar.yummyazukibar.commands.ConstructTabComplete;
 import com.temps1101.yummyazukibar.yummyazukibar.commands.LoginDataCommand;
 import com.temps1101.yummyazukibar.yummyazukibar.listeners.PlayerJoinListener;
 import com.temps1101.yummyazukibar.yummyazukibar.yamlDB.LoginData;
@@ -19,6 +20,7 @@ public final class YummyAzukibar extends JavaPlugin {
         }
         handler = new YAMLHandler(getDataFolder());
         Bukkit.getPluginCommand("logindata").setExecutor(new LoginDataCommand());
+        Bukkit.getPluginCommand("logindata").setTabCompleter(new ConstructTabComplete());
         Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(), this);
     }
 
