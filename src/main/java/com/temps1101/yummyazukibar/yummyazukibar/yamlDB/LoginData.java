@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.UUID;
 
 public class LoginData {
-    public static HashMap<UUID, LoginData> cache = new HashMap<UUID, LoginData>();
+    public static HashMap<UUID, LoginData> cache = new HashMap<>();
     private Date firstJoin;
     private Date lastJoin;
     private int count;
@@ -57,8 +57,6 @@ public class LoginData {
         count++;
     }
     public static void uncacheAllLoginData() {
-        cache.forEach((uuid, loginData) -> {
-            YAMLHandler.saveLoginData(Bukkit.getPlayer(uuid), loginData);
-        });
+        cache.forEach((uuid, loginData) -> YAMLHandler.saveLoginData(Bukkit.getPlayer(uuid), loginData));
     }
 }
