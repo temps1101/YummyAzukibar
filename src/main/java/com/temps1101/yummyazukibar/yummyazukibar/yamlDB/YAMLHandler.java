@@ -27,18 +27,22 @@ public class YAMLHandler {
         Date firstJoin = new Date(conf.getLong("first_join", p.getFirstPlayed()));
         Date lastJoin = new Date(conf.getLong("last_join", p.getLastPlayed()));
         int count = conf.getInt("count", 0);
-        return new LoginData(firstJoin, lastJoin, count);
+        Date lastUpdate = new Date(conf.getLong("last_update", (new Date()).getTime()));
+        return new LoginData(firstJoin, lastJoin, count, lastUpdate);
     }
     public static void saveLoginData(Player p, LoginData loginData) {
-        File loginDataFile =     new File(pluginDirectory, p.getUniqueId().toString() + ".yml");
-        YamlConfiguration conf = YamlConfiguration.loadConfiguration(loginDataFile);
-        conf.set("first_join", loginData.getFirstjoin());
-        conf.set("last_join", loginData.getLastJoin());
-        conf.set("count", loginData.getCount());
-        try {
-            conf.save(loginDataFile);
-        } catch (IOException e) {
-            e.printStackTrace();
+        File loginDataFile = new File(pluginDirectory, p.getUniqueId().toString() + ".yml");
+        if (loginDataFile.exists()) {
+            YamlConfiguration conf = YamlConfiguration.loadConfiguration(loginDataFile);
+            conf.set("first_join", loginData.getFirstjoin());
+            conf.set("last_join", loginData.getLastJoin());
+            conf.set("count", loginData.getCount());
+            conf.set("last_update", (new Date()).getTime());
+            try {
+                conf.save(loginDataFile);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
     public static boolean playerExists(Player p) {

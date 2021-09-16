@@ -12,10 +12,12 @@ public class LoginData {
     private Date firstJoin;
     private Date lastJoin;
     private int count;
-    public LoginData(Date firstJoin, Date lastJoin, int count) {
+    private final Date lastUpdate;
+    public LoginData(Date firstJoin, Date lastJoin, int count, Date lastUpdate) {
         this.firstJoin = firstJoin;
         this.lastJoin = lastJoin;
         this.count = count;
+        this.lastUpdate = lastUpdate;
     }
     public static LoginData getLoginData(Player p) {
         UUID uuid = p.getUniqueId();
@@ -28,7 +30,7 @@ public class LoginData {
     public static LoginData cacheLoginData(Player p) {
         UUID uuid = p.getUniqueId();
         LoginData loginData = YAMLHandler.getLoginData(p);
-        loginData.increaseCount();
+        loginData.updateData(p);
         cache.put(uuid, loginData);
         return loginData;
     }
@@ -46,7 +48,12 @@ public class LoginData {
     public int getCount() {
         return count;
     }
-    public void increaseCount() {
+    public Date getLastUpdate() {
+        return lastUpdate;
+    }
+    public void updateData(Player p) {
+        firstJoin = new Date(p.getFirstPlayed());
+        lastJoin = new Date(p.getLastPlayed());
         count++;
     }
     public static void uncacheAllLoginData() {

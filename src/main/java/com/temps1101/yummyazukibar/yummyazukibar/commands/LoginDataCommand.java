@@ -21,18 +21,19 @@ public class LoginDataCommand implements CommandExecutor {
         if (args.length == 2) {
             Player argPlayer = Bukkit.getPlayer(args[1]);
             if (YAMLHandler.playerExists(argPlayer)) {
+                String lastUpdateDate = sdf.format(LoginData.getLoginData(argPlayer).getLastUpdate());
                 switch (args[0].toLowerCase()) {
                     case "firstjoin":
                         Date lastJoinDate = LoginData.getLoginData(argPlayer).getFirstjoin();
-                        sender.sendMessage(ChatTools.prettyStringFormatted("&l&b{0}&r&7は&c&l{1}&r&7に初ログインをしました。", argPlayer.getName(), sdf.format(lastJoinDate)));
+                        sender.sendMessage(ChatTools.prettyStringFormatted("&l&b{0}&r&7は&c&l{1}&r&7に初ログインをしました。(最終更新日時:{2})", argPlayer.getName(), sdf.format(lastJoinDate), sdf.format(lastJoinDate), lastUpdateDate));
                         return true;
                     case "lastjoin":
                         Date firstJoinDate = LoginData.getLoginData(argPlayer).getLastJoin();
-                        sender.sendMessage(ChatTools.prettyStringFormatted("&l&b{0}&r&7は&c&l{1}&r&7に最終ログインをしました。", argPlayer.getName(), sdf.format(firstJoinDate)));
+                        sender.sendMessage(ChatTools.prettyStringFormatted("&l&b{0}&r&7は&c&l{1}&r&7に最終ログインをしました。(最終更新日時:{2})", argPlayer.getName(), sdf.format(firstJoinDate), lastUpdateDate));
                         return true;
                     case "count":
                         Integer count = LoginData.getLoginData(argPlayer).getCount();
-                        sender.sendMessage(ChatTools.prettyStringFormatted("&l&b{0}&r&7は&c&l{1}&r&7回ログインをしました。", argPlayer.getName(), count.toString()));
+                        sender.sendMessage(ChatTools.prettyStringFormatted("&l&b{0}&r&7は&c&l{1}&r&7回ログインをしました。(最終更新日時:{2})", argPlayer.getName(), count.toString(), lastUpdateDate));
                         return true;
                     default: // when the specified player hasn't joined or doesn't exist
                         sender.sendMessage(ChatTools.prettyStringFormatted("&7使い方 &r: &7/logindata [&3firstjoin &7| &3lastjoin &7| &3count&7] [&3MCID&7]"));
