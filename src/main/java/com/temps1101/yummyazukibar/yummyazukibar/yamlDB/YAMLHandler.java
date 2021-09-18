@@ -9,7 +9,7 @@ import java.util.Date;
 
 public class YAMLHandler {
     private static File pluginDirectory;
-    public YAMLHandler(File pluginDirectory) {
+    public static YAMLHandler(File pluginDirectory) {
         this.pluginDirectory = pluginDirectory;
     }
 
